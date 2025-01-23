@@ -1,0 +1,31 @@
+repos:
+  - repo: local
+    hooks:
+      # Black for Python formatting
+      - id: black
+        name: Black Formatter
+        entry: black
+        language: system
+        types: [python]
+
+      # isort for sorting Python imports
+      - id: isort
+        name: Import Sorter
+        entry: isort
+        language: system
+        types: [python]
+
+      # Flake8 for Python linting with max-line-length set to 100
+      - id: flake8
+        name: Flake8 Linter
+        entry: flake8 --max-line-length=100
+        language: system
+        types: [python]
+
+      # Pytest for Django be testing
+      - id: pytest-check
+        name: pytest-check
+        entry: pytest -vv
+        language: system
+        pass_filenames: false
+        always_run: true
